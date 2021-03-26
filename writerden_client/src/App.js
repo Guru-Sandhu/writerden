@@ -7,6 +7,8 @@ import { User } from './api/requests';
 import { Session } from './api/requests'
 import { UserNewPage } from './components/UserNewPage'
 import { PostNewPage } from './components/PostNewPage'
+import { PostShowPage } from './components/PostShowPage'
+import { UserShowPage } from './components/UserShowPage'
 
 class App extends Component {
   constructor(props) {
@@ -42,9 +44,11 @@ class App extends Component {
       <NavBar currentUser={this.state.currentUser} signOut={this.destroySession} />
         <main className="ui container">
           <Switch>
+            <Route exact path='/profile' component={UserShowPage} />
             <Route exact path='/users/new' component={UserNewPage} />
             <Route exact path='/posts/new' component={PostNewPage} />
-            <Route exact path='/posts' component={PostIndexPage} />
+            <Route path='/posts/:id' component={PostShowPage} />
+            <Route exact path='/' component={PostIndexPage} />
             <Route exact path='/sign_in'component={SignInPage} />
           </Switch>
         </main>

@@ -6,7 +6,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new post_params
+    post = Post.new body: params['_json']
     post.user = User.find(session[:user_id])
     if post.save
       render(json: { id: post.id, status: 200 }, status: 200)

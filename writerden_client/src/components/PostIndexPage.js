@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import { Post } from '../api/requests'
+import React, { Component } from 'react';
+import { Post } from '../api/requests';
+import { Link } from 'react-router-dom';
+import { Spinner } from './Spinner';
 
 class PostIndexPage extends Component {
   constructor(props) {
@@ -23,11 +25,7 @@ class PostIndexPage extends Component {
     if (this.state.isLoading) {
       return (
         <main className="Page">
-          <div className="ui segment" style={{ minHeight: "10em" }}>
-            <div className="ui active dimmer">
-              <div className="ui text loader">Loading...</div>
-            </div>
-          </div>
+          <Spinner message="Post Doesn't Exist" />
         </main>
       );
     }
@@ -38,7 +36,7 @@ class PostIndexPage extends Component {
           { this.state.posts.map((post) => (
             <div className="ui raised clearing segment" key={post.id} >
               <h3 className="ui header">
-                <p>{post.title}</p>
+                <Link to={`/posts/${post.id}`}>{post.title}</Link>
               </h3>
             </div>
           ))}

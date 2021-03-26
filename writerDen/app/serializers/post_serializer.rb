@@ -8,5 +8,5 @@ class PostSerializer < ActiveModel::Serializer
     :created_at,
     :updated_at
   )
-  has_many :reviews
+  belongs_to :user, key: :author
 end

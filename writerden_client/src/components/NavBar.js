@@ -7,10 +7,7 @@ export const NavBar = (props) => {
   return (
     <div className="ui secondary pointing menu">
       <NavLink exact to="/" className="item">
-        Welcome
-      </NavLink>
-      <NavLink exact to="/posts" className="item">
-        Posts
+        Home
       </NavLink>
       <NavLink exact to="/posts/new" className="item">
         New Post
@@ -19,7 +16,7 @@ export const NavBar = (props) => {
         { !currentUser && <NavLink to='/sign_in' className="ui blue button" >Sign In</NavLink> }
         { currentUser && (
           <>
-            <span className="item">Hello {currentUser.first_name}</span>
+            <NavLink exact to='/profile' className="item">Hello {currentUser.first_name}</NavLink>
             <NavLink className="ui small red button" to="/" onClick={signOut}>
               Sign Out
             </NavLink>

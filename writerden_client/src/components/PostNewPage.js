@@ -25,8 +25,7 @@ export function PostNewPage () {
           setText(data)
         }}
       />
-      <button onClick={createPost}>Submit</button>
-      <p>{text}</p>
+    <button onClick={createPost}>Submit</button>
     </div>
   )
 
